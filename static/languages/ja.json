@@ -1,0 +1,8 @@
+{
+  "start": "スタート",
+  "courseList": "リスト",
+  "projectName": "お家とその子供たち",
+  "apiErrors": {
+    "5000": "サーバーエラー"
+  }
+}
