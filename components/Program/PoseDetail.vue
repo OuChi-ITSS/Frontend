@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row dense class="justify-center">
-      <v-col cols="12">
+      <v-col cols="12" class="pa-0">
         <video-player
           ref="videoPlayer"
           class="video-player-box vjs-default-skin vjs-big-play-centered"
@@ -31,7 +31,7 @@ export default {
     },
     heightVid: {
       type: Number,
-      default: 360,
+      default: 480,
     },
     poster: {
       type: String,
