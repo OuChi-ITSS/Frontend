@@ -10,25 +10,29 @@
     #00cfd5
   ) !important;
 }
-.deepDarkBg {
+.lightBg {
   background: linear-gradient(to right top, #f5f6f7, #fdfbfb) !important;
 }
 
-.gradientBG {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) !important;
-  background-size: 400% 400% !important;
-  animation: change 10s ease-in-out infinite !important;
-  -webkit-animation: change 10s ease-in-out infinite !important;
+.darkBg {
+  background: linear-gradient(to right top, #000000, #151515) !important;
 }
 
-@keyframes change {
+.gradientBG {
+  background: linear-gradient(-45deg, #a0caf2, #a1f3e0, #84cce6, #91f5de);
+  background-size: 400% 400%;
+
+  animation: Animation 20s ease-in-out infinite;
+}
+
+@keyframes Animation {
   0% {
-    background-position: 0 50%;
+    background-position: 10% 0%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 91% 100%;
   }
   100% {
-    background-position: 0 50%;
+    background-position: 10% 0%;
   }
 }

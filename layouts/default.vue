@@ -8,7 +8,7 @@
         @click="$router.push('/')"
       />
     </v-app-bar>
-    <v-main class="deepDarkBg">
+    <v-main class="lightBg">
       <v-container>
         <nuxt />
       </v-container>

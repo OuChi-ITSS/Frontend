@@ -4,5 +4,9 @@
   "projectName": "お家とその子供たち",
   "apiErrors": {
     "5000": "サーバーエラー"
-  }
+  },
+  "completed": "完成",
+  "continue": "完成",
+  "training": "トレーニング",
+  "cancel": "キャンセル"
 }

@@ -1,7 +1,7 @@
 <template>
   <v-container class="fill-height justify-center" fluid>
     <v-row dense>
-      <v-col v-for="(item, i) in items" :key="i" cols="12" md="6" xl="4">
+      <v-col v-for="(item, i) in items" :key="i" cols="12" md="6" lg="4">
         <ProgramCard :id="item.id" />
       </v-col>
     </v-row>

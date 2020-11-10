@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "Pose 1",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+    "name": "Intro",
+    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/1.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "Pose 2",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/2.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "name": "Pose 3",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/3.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Pose 4",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/4.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -38,16 +38,7 @@
   {
     "id": 5,
     "name": "Pose 5",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
-    "specification": {
-      "hl": 12,
-      "hr": 14
-    }
-  },
-  {
-    "id": 6,
-    "name": "Pose 6",
-    "video_url": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/5.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
