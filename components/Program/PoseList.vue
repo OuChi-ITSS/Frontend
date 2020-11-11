@@ -1,7 +1,7 @@
 <template>
   <v-container class="fill-height" fluid>
     <v-row align="center" justify="center">
-      <v-col v-if="poseLists.length > 0" cols="12">
+      <v-col v-if="poseLists.length > 0" cols="12" lg="9">
         <v-stepper v-model="e1">
           <v-stepper-header>
             <template v-for="(pose, i) in poseLists">

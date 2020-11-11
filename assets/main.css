@@ -25,6 +25,13 @@
   animation: Animation 20s ease-in-out infinite;
 }
 
+.headerBG {
+  background: linear-gradient(-45deg, #eeeeee, #e5f1ee, #eff4f7, #e3f0ed);
+  background-size: 400% 400%;
+
+  animation: Animation 20s ease-in-out infinite;
+}
+
 @keyframes Animation {
   0% {
     background-position: 10% 0%;

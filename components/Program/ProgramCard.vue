@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card :loading="loading" class="ma-5" max-width="360">
+    <v-card :loading="loading" class="ma-5 mx-auto" max-width="360">
       <template slot="progress">
         <v-progress-linear
           color="grey darken-3"
