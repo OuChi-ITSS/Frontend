@@ -1,29 +1,40 @@
 <template>
-  <div class="hello">
-    <!-- TODO: File nay tam de day de test, a Lam chinh ve dung route cho b nhe-->
-    <!-- Phan nay la camera da duoc hide di roi nhe-->
-    <web-cam
-      ref="webcam"
-      style="
-        transform: scaleX(-1);
-        -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        display: none !important;
-      "
-      width="900"
-      :device-id="deviceId"
-      @cameras="onCameras"
-      @video-live="onLive"
-    />
-    <!-- Phan nay moi la phan thuc hien detection-->
-    <canvas ref="canvas" />
-    <!-- Bien cai nay thanh progress bar nhe-->
-    <p style="color: #0f0">{{ progress }}%</p>
-    <!-- <div class="row">
-      <p>{{ progress }}%</p>
-    </div> -->
-  </div>
+  <v-container class="fill-height" fluid>
+    <v-row align="center" justify="center">
+      <!-- TODO: File nay tam de day de test, a Lam chinh ve dung route cho b nhe-->
+      <!-- Phan nay la camera da duoc hide di roi nhe-->
+      <v-col cols="12" align="center" justify="center">
+        <web-cam
+          ref="webcam"
+          style="
+            transform: scaleX(-1);
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            display: none !important;
+          "
+          width="900"
+          :device-id="deviceId"
+          @cameras="onCameras"
+          @video-live="onLive"
+        />
+        <!-- Phan nay moi la phan thuc hien detection-->
+        <canvas ref="canvas" />
+      </v-col>
+      <v-col cols="8">
+        <!-- Bien cai nay thanh progress bar nhe-->
+        <v-progress-linear
+          v-model="progress"
+          stream
+          color="cyan"
+          rounded
+          height="25"
+        >
+          <strong>{{ progress }}%</strong>
+        </v-progress-linear>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

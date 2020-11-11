@@ -6,10 +6,10 @@
           <v-stepper-header>
             <template v-for="(pose, i) in poseLists">
               <v-stepper-step
+                :key="`${i}-step`"
                 :complete="e1 > i + 1"
                 editable
                 :step="i + 1"
-                :key="`${i}-step`"
               >
                 {{ pose.name }}
               </v-stepper-step>
@@ -22,9 +22,9 @@
 
           <v-stepper-items>
             <v-stepper-content
-              class="gradientBG"
               v-for="(pose, i) in poseLists"
               :key="`${i}-content`"
+              class="gradientBG"
               :step="i + 1"
             >
               <v-card
@@ -33,7 +33,7 @@
                 justify="center"
                 elevation="0"
               >
-                <PoseDetail :src-vid="pose.video_url" />
+                <PoseDetail :src-vid="pose.video_url" :poster="pose.poster" />
                 <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
                   $t('continue')
                 }}</v-btn>
