@@ -170,36 +170,54 @@ export default {
 					if (score >= 0.1) {
 						data = this.$posenetUtils.countPoseAngle(keypoints)
 						// console.log("Pose Angle", data);
-						if (this.$posenetUtils.checkPose(checkData, data)) {
-							this.$posenetUtils.drawKeyPoints(
-								keypoints,
-								0.5,
-								'#00FF00',
-								canvasContext
-							)
+						const checkedKeypoints =  this.$posenetUtils.checkPoseDrawing(checkData, data, keypoints)
+						console.log("check", checkedKeypoints)
+						this.$posenetUtils.drawKeyPoints(
+							checkedKeypoints,
+							0.5,
+							'#FF0000',
+							'#00FF00',
+							canvasContext
+						)
+						this.$posenetUtils.drawSkeleton(
+							checkedKeypoints,
+							0.5,
+							'#FF0000',
+							'#00FF00',
+							6,
+							canvasContext
+						)
+						
+						// if (this.$posenetUtils.checkPose(checkData, data)) {
+						// 	this.$posenetUtils.drawKeyPoints(
+						// 		keypoints,
+						// 		0.5,
+						// 		'#00FF00',
+						// 		canvasContext
+						// 	)
 
-							this.$posenetUtils.drawSkeleton(
-								keypoints,
-								0.5,
-								'#00FF00',
-								6,
-								canvasContext
-							)
-						} else {
-							this.$posenetUtils.drawKeyPoints(
-								keypoints,
-								0.5,
-								'#ffadea',
-								canvasContext
-							)
-							this.$posenetUtils.drawSkeleton(
-								keypoints,
-								0.5,
-								'#ffadea',
-								6,
-								canvasContext
-							)
-						}
+						// 	this.$posenetUtils.drawSkeleton(
+						// 		keypoints,
+						// 		0.5,
+						// 		'#00FF00',
+						// 		6,
+						// 		canvasContext
+						// 	)
+						// } else {
+						// 	this.$posenetUtils.drawKeyPoints(
+						// 		keypoints,
+						// 		0.5,
+						// 		'#ffadea',
+						// 		canvasContext
+						// 	)
+						// 	this.$posenetUtils.drawSkeleton(
+						// 		keypoints,
+						// 		0.5,
+						// 		'#ffadea',
+						// 		6,
+						// 		canvasContext
+						// 	)
+						// }
 					}
 				})
 				requestAnimationFrame(findPoseDetectionFrame)
