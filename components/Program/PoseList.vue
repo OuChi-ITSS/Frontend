@@ -11,7 +11,7 @@
                 editable
                 :step="i + 1"
               >
-                {{ pose.name }}
+                {{ pose.poseName }}
               </v-stepper-step>
               <v-divider :key="`${i}-div`"></v-divider>
             </template>
@@ -33,7 +33,7 @@
                 justify="center"
                 elevation="0"
               >
-                <PoseDetail :src-vid="pose.video_url" :poster="pose.poster" />
+                <PoseDetail :src-vid="pose.videoUrl" />
                 <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
                   $t('continue')
                 }}</v-btn>
@@ -48,7 +48,9 @@
                     rounded
                     color="cyan"
                     elevation="0"
-                    @click="$router.push('/test')"
+                    @click="
+                      $router.push('/courses/' + $route.params.id + '/training')
+                    "
                   >
                     <v-icon>mdi-rocket-launch-outline</v-icon>
                   </v-btn>
@@ -81,9 +83,9 @@ export default {
   methods: {
     getPostInfo() {
       this.$backend
-        .getPoseList()
+        .getPoseList(this.$route.params.id)
         .then((e) => {
-          this.poseLists = JSON.parse(JSON.stringify(e.data))
+          this.poseLists = e.data
         })
         .catch((err) => {
           console.log(err)

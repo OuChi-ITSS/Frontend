@@ -27,7 +27,7 @@ export default {
       this.$backend
         .getProgramList()
         .then((e) => {
-          this.items = JSON.parse(JSON.stringify(e.data))
+          this.items = e.data.results
         })
         .catch((err) => {
           console.log(err)

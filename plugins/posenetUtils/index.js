@@ -127,11 +127,11 @@ export default ({ app }, inject) => {
     },
     checkPoseDrawing(checkData, data, keypoints) {
       const keypointsChecked = [
-        { check: 0 },
-        { check: 0 },
-        { check: 0 },
-        { check: 0 },
-        { check: 0 },
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
         { check: 0 },
         { check: 0 },
         { check: 0 },

@@ -53,7 +53,7 @@ var data = {
 	leftHip: 0,
 	rightHip: 0,
 }
-const dataList = [
+var dataList = [
 	// {
 	// 	leftArm: [80, 100],
 	// 	rightArm: [0, 180],
@@ -104,6 +104,13 @@ export default {
 				this.deviceId = first.deviceId
 			}
 		},
+	},
+	async created() {
+		const resData = await this.$backend.getPoseList(this.$route.params.id)
+		dataList = resData.data.map((datum) => {
+			return JSON.parse(datum.specification)
+		})
+		// console.log('data',dataList)
 	},
 	async mounted() {
 		console.log('cam', this.$refs.webcam)
@@ -165,7 +172,7 @@ export default {
 						data = this.$posenetUtils.countPoseAngle(keypoints)
 						// console.log("Pose Angle", data);
 						const checkedKeypoints =  this.$posenetUtils.checkPoseDrawing(checkData, data, keypoints)
-						console.log("check", checkedKeypoints)
+						// console.log("check", checkedKeypoints)
 						this.$posenetUtils.drawKeyPoints(
 							checkedKeypoints,
 							0.5,
@@ -225,7 +232,7 @@ export default {
 				return
 			}
 			if (this.$posenetUtils.checkPose(checkData, data)) {
-				this.progress += 100
+				this.progress += 100 / dataList.length
 				// if (dataIndex < dataList.length - 1) {
 				// 	checkData = dataList[++dataIndex]
 				// }

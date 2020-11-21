@@ -9,7 +9,7 @@
         ></v-progress-linear>
       </template>
 
-      <v-img v-if="!!itemInfo" height="250" :src="itemInfo.img_url">
+      <v-img v-if="!!itemInfo" height="250" :src="itemInfo.imageUrl">
         <v-expand-transition>
           <div
             v-if="hover"
@@ -17,9 +17,9 @@
             style="height: 100%"
           >
             <v-card :loading="loading" max-width="360" elevation="0">
-              <v-card-title>{{ itemInfo.name }}</v-card-title>
+              <v-card-title>{{ itemInfo.programName }}</v-card-title>
               <v-card-subtitle>
-                {{ itemInfo.intro }}
+                {{ itemInfo.introduction }}
               </v-card-subtitle>
 
               <v-card-text>
@@ -68,9 +68,7 @@ export default {
     this.$backend
       .getProgramInfo(this.id)
       .then((e) => {
-        this.itemInfo = JSON.parse(JSON.stringify(e.data)).find(
-          (e) => e.id === this.id
-        )
+        this.itemInfo = e.data
       })
       .catch((err) => {
         console.log(err)
