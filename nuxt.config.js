@@ -67,7 +67,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -83,7 +83,7 @@ export default {
   },
 
   env: {
-    API_URL: API_URL || 'http://localhost:5000',
+    API_URL: API_URL || 'http://localhost:3000',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

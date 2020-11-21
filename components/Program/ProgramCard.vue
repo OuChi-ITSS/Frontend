@@ -16,7 +16,12 @@
             class="d-flex transition-fast-in-fast-out grey darken-4 v-card--reveal display-3 white--text"
             style="height: 100%"
           >
-            <v-card :loading="loading" max-width="360" elevation="0">
+            <v-card
+              class="px-6"
+              :loading="loading"
+              max-width="360"
+              elevation="0"
+            >
               <v-card-title>{{ itemInfo.name }}</v-card-title>
               <v-card-subtitle>
                 {{ itemInfo.intro }}
