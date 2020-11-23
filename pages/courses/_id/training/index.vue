@@ -1,5 +1,6 @@
 <template>
   <v-container class="fill-height" fluid>
+    <h1 class="display-1 mx-4">{{ $t('training') }}</h1>
     <v-row align="center" justify="center">
       <!-- TODO: File nay tam de day de test, a Lam chinh ve dung route cho b nhe-->
       <!-- Phan nay la camera da duoc hide di roi nhe-->

@@ -8,5 +8,8 @@
   "completed": "完成",
   "continue": "完成",
   "training": "トレーニング",
-  "cancel": "キャンセル"
+  "cancel": "キャンセル",
+  "programList": "プログラムリスト",
+  "poseList": "ポーズリスト",
+  "poseGuide": "ポーズガイド"
 }

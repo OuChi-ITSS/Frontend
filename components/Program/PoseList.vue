@@ -16,7 +16,7 @@
               <v-divider :key="`${i}-div`"></v-divider>
             </template>
             <v-stepper-step :step="poseLists.length + 1">
-              {{ $t('completed') }}
+              {{ $t('training') }}
             </v-stepper-step>
           </v-stepper-header>
 
@@ -34,14 +34,35 @@
                 elevation="0"
               >
                 <PoseDetail :src-vid="pose.videoUrl" />
-                <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
+                <!-- <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
                   $t('continue')
-                }}</v-btn>
+                }}</v-btn> -->
+                <v-btn
+                  class="mx-2 mb-6"
+                  fab
+                  dark
+                  large
+                  color="cyan"
+                  @click="e1 = i + 2"
+                >
+                  <v-icon dark> mdi-chevron-double-right </v-icon>
+                </v-btn>
               </v-card>
             </v-stepper-content>
             <v-stepper-content class="gradientBG" :step="poseLists.length + 1">
-              <v-card class="gradientBG" align="center" justify="center">
-                <h1 class="pt-12 pb-10 white--text">{{ $t('training') }}</h1>
+              <v-card
+                color="rgb(255, 0, 0, 0)"
+                align="center"
+                justify="center"
+                height="420"
+                elevation="0"
+              >
+                <h1
+                  class="pt-12 pb-10 white--text display-2"
+                  style="margin-top: 160px"
+                >
+                  {{ $t('training') }}
+                </h1>
                 <v-card-actions>
                   <v-btn
                     class="mx-auto white--text"

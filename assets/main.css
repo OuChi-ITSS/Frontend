@@ -1,7 +1,49 @@
 .appLogo {
-  height: 40px;
-  width: 40px;
+  height: 64px;
+  width: auto;
   margin-right: 30px;
+}
+.home--toolbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  color: white;
+  z-index: 99;
+  background-color: rgb(255, 0, 0, 0);
+}
+.header--slogan {
+  display: inline-block;
+  padding-top: 200px;
+  color: rgb(22, 21, 21);
+  z-index: 99;
+  background-color: rgb(255, 0, 0, 0);
+}
+.header--slogan-text {
+  display: block;
+  margin-top: 25px;
+}
+.header--divide {
+  height: 2.5px;
+  width: 120px;
+  display: inherit;
+  background-color: rgb(231, 71, 71);
+  margin-right: 25px;
+}
+.page--item {
+  padding: 0 !important;
+}
+.page--item-img {
+  max-height: 240px;
+  position:relative;
+}
+.page--item-text {
+  left: 0;
+  position:absolute;
+  text-align:center;
+  top: 42%;
+  font-size: 32px;
+  width: 100%;
+  color: white;
 }
 .dfBg {
   background: radial-gradient(
@@ -11,7 +53,7 @@
   ) !important;
 }
 .lightBg {
-  background: linear-gradient(to right top, #f5f6f7, #fdfbfb) !important;
+  background: #ffffff !important;
 }
 
 .darkBg {

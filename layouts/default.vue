@@ -6,7 +6,7 @@
           <v-toolbar color="rgba(0, 0, 0, 0)" elevation="0">
             <img
               class="appLogo mx-auto"
-              src="/fbLogo.png"
+              src="/logo.png"
               alt="App's Logo"
               @click="$router.push('/')"
             />
@@ -20,33 +20,6 @@
           </v-toolbar>
         </v-row>
       </v-container>
-      <!-- <v-app-bar fixed flat color="rgba(0, 0, 0, 0)">
-        <img
-          class="appLogo mx-auto"
-          src="/fbLogo.png"
-          alt="App's Logo"
-          @click="$router.push('/')"
-        />
-      </v-app-bar> -->
-      <!-- <v-carousel
-        :continuous="false"
-        cycle
-        :show-arrows="false"
-        hide-delimiter-background
-        delimiter-icon="mdi-minus"
-        height="40vh"
-      >
-        <v-carousel-item v-for="(item, i) in bgImg" :key="i" :src="item.src">
-          <v-app-bar fixed flat color="rgba(0, 0, 0, 0)">
-            <img
-              class="appLogo mx-auto"
-              src="/fbLogo.png"
-              alt="App's Logo"
-              @click="$router.push('/')"
-            />
-          </v-app-bar>
-        </v-carousel-item>
-      </v-carousel> -->
     </v-card>
     <v-main class="lightBg">
       <v-container>
