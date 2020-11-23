@@ -125,10 +125,102 @@ export default ({ app }, inject) => {
         data.rightHip <= checkData.rightHip[1]
       )
     },
+    checkPoseDrawing(checkData, data, keypoints) {
+      const keypointsChecked = [
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
+        { check: 1 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+        { check: 0 },
+      ]
+      const res = []
+      if (
+        checkData.leftArm[0] <= data.leftArm &&
+        data.leftArm <= checkData.leftArm[1]
+      ) {
+        keypointsChecked[5].check = 1
+        keypointsChecked[7].check = 1
+        keypointsChecked[9].check = 1
+      }
+      if (
+        checkData.rightArm[0] <= data.rightArm &&
+        data.rightArm <= checkData.rightArm[1]
+      ) {
+        keypointsChecked[6].check = 1
+        keypointsChecked[8].check = 1
+        keypointsChecked[10].check = 1
+      }
+      if (
+        checkData.leftLeg[0] <= data.leftLeg &&
+        data.leftLeg <= checkData.leftLeg[1]
+      ) {
+        keypointsChecked[11].check = 1
+        keypointsChecked[13].check = 1
+        keypointsChecked[15].check = 1
+      }
+      if (
+        checkData.rightLeg[0] <= data.rightLeg &&
+        data.rightLeg <= checkData.rightLeg[1]
+      ) {
+        keypointsChecked[12].check = 1
+        keypointsChecked[14].check = 1
+        keypointsChecked[16].check = 1
+      }
+      if (
+        checkData.leftShoulder[0] <= data.leftShoulder &&
+        data.leftShoulder <= checkData.leftShoulder[1]
+      ) {
+        keypointsChecked[7].check = 1
+        keypointsChecked[5].check = 1
+        keypointsChecked[11].check = 1
+      }
+      if (
+        checkData.rightShoulder[0] <= data.rightShoulder &&
+        data.rightShoulder <= checkData.rightShoulder[1]
+      ) {
+        keypointsChecked[8].check = 1
+        keypointsChecked[6].check = 1
+        keypointsChecked[12].check = 1
+      }
+      if (
+        checkData.leftHip[0] <= data.leftHip &&
+        data.leftHip <= checkData.leftHip[1]
+      ) {
+        keypointsChecked[5].check = 1
+        keypointsChecked[11].check = 1
+        keypointsChecked[13].check = 1
+      }
+      if (
+        checkData.rightHip[0] <= data.rightHip &&
+        data.rightHip <= checkData.rightHip[1]
+      ) {
+        keypointsChecked[6].check = 1
+        keypointsChecked[12].check = 1
+        keypointsChecked[14].check = 1
+      }
+      for (let i = 0; i < keypoints.length; i++) {
+        const elm = { ...keypoints[i], ...keypointsChecked[i] }
+        res.push(elm)
+      }
+      return res
+    },
     drawSkeleton(
       keypoints,
       minConfidence,
       color,
+      colorCorrect,
       lineWidth,
       canvasContext,
       scale = 1
@@ -139,20 +231,32 @@ export default ({ app }, inject) => {
       )
 
       adjacentKeyPoints.forEach((keypoints) => {
-        drawSegment(
-          toTuple(keypoints[0].position),
-          toTuple(keypoints[1].position),
-          color,
-          lineWidth,
-          scale,
-          canvasContext
-        )
+        if (keypoints[0].check === 1 && keypoints[1].check === 1) {
+          drawSegment(
+            toTuple(keypoints[0].position),
+            toTuple(keypoints[1].position),
+            colorCorrect,
+            lineWidth,
+            scale,
+            canvasContext
+          )
+        } else {
+          drawSegment(
+            toTuple(keypoints[0].position),
+            toTuple(keypoints[1].position),
+            color,
+            lineWidth,
+            scale,
+            canvasContext
+          )
+        }
       })
     },
     drawKeyPoints(
       keypoints,
       minConfidence,
       skeletonColor,
+      skeletonColorCorrect,
       canvasContext,
       scale = 1
     ) {
@@ -161,7 +265,11 @@ export default ({ app }, inject) => {
           const { x, y } = keypoint.position
           canvasContext.beginPath()
           canvasContext.arc(x * scale, y * scale, pointRadius, 0, 2 * Math.PI)
-          canvasContext.fillStyle = skeletonColor
+          if (keypoint.check === 1) {
+            canvasContext.fillStyle = skeletonColorCorrect
+          } else {
+            canvasContext.fillStyle = skeletonColor
+          }
           canvasContext.fill()
         }
       })

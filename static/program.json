@@ -1,43 +1,43 @@
 [
   {
     "id": 1,
-    "name": "Video 1",
-    "img_url": "https://www.history.com/.image/t_share/MTY0OTE4ODAzMDQwMzE0Njg1/yoga-gettyimages-1142820079-promo.jpg",
+    "introduction": "Video 1",
+    "imageUrl": "https://www.history.com/.image/t_share/MTY0OTE4ODAzMDQwMzE0Njg1/yoga-gettyimages-1142820079-promo.jpg",
     "pose": [1, 2, 3],
     "intro": "Third Eye Yoga"
   },
   {
     "id": 2,
-    "name": "Video 2",
-    "img_url": "https://post.healthline.com/wp-content/uploads/2019/09/Female_Yoga_732x549-thumbnail.jpg",
+    "introduction": "Video 2",
+    "imageUrl": "https://post.healthline.com/wp-content/uploads/2019/09/Female_Yoga_732x549-thumbnail.jpg",
     "pose": [1, 2, 3],
     "intro": "Center Yoga"
   },
   {
     "id": 3,
-    "name": "Video 3",
-    "img_url": "https://image.freepik.com/free-photo/group-children-are-engaged-yoga-with-trainer-ocean_110955-452.jpg",
+    "introduction": "Video 3",
+    "imageUrl": "https://image.freepik.com/free-photo/group-children-are-engaged-yoga-with-trainer-ocean_110955-452.jpg",
     "pose": [1, 2, 3],
     "intro": "Within Yoga"
   },
   {
     "id": 4,
-    "name": "Video 4",
-    "img_url": "https://www.natalierousseau.com/wp-content/uploads/2018/09/DSC_1860-2.jpg",
+    "introduction": "Video 4",
+    "imageUrl": "https://www.natalierousseau.com/wp-content/uploads/2018/09/DSC_1860-2.jpg",
     "pose": [1, 2, 3],
     "intro": "Drishti Yoga"
   },
   {
     "id": 5,
-    "name": "Video 5",
-    "img_url": "https://imgc.allpostersimages.com/img/print/u-g-Q1BVARZ0.jpg",
+    "introduction": "Video 5",
+    "imageUrl": "https://imgc.allpostersimages.com/img/print/u-g-Q1BVARZ0.jpg",
     "pose": [1, 2, 3],
     "intro": "Deep Roots Yoga"
   },
   {
     "id": 6,
-    "name": "Video 6",
-    "img_url": "https://specials-images.forbesimg.com/imageserve/5e7a3abfd8e1ae0007b763fc/960x0.jpg",
+    "introduction": "Video 6",
+    "imageUrl": "https://specials-images.forbesimg.com/imageserve/5e7a3abfd8e1ae0007b763fc/960x0.jpg",
     "pose": [1, 2, 3],
     "intro": "Eight Limbs Yoga"
   }

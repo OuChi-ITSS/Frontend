@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Intro",
-    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/1.mp4",
+    "poseName": "Intro",
+    "poster": "https://vinmec-prod.s3.amazonaws.com/images/20190625_080830_605352_shutterstock_552071.max-1800x1800.jpg",
+    "videoUrl": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/1.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -10,8 +11,9 @@
   },
   {
     "id": 2,
-    "name": "Pose 2",
-    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/2.mp4",
+    "poseName": "Pose 2",
+    "poster": "https://vinmec-prod.s3.amazonaws.com/images/20190625_080830_605352_shutterstock_552071.max-1800x1800.jpg",
+    "videoUrl": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/2.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -19,8 +21,9 @@
   },
   {
     "id": 3,
-    "name": "Pose 3",
-    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/3.mp4",
+    "poseName": "Pose 3",
+    "poster": "https://scontent.fhan2-5.fna.fbcdn.net/v/t1.15752-9/124551356_411826973309240_7802479248969503316_n.png?_nc_cat=109&ccb=2&_nc_sid=ae9488&_nc_ohc=upiWEQhtu08AX-7RXzW&_nc_ht=scontent.fhan2-5.fna&oh=68a56d0871b4d8a1c5fd30decaa887e9&oe=5FD0EA49",
+    "videoUrl": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/3.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -28,8 +31,9 @@
   },
   {
     "id": 4,
-    "name": "Pose 4",
-    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/4.mp4",
+    "poseName": "Pose 4",
+    "poster": "https://vinmec-prod.s3.amazonaws.com/images/20190625_080830_605352_shutterstock_552071.max-1800x1800.jpg",
+    "videoUrl": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/4.mp4",
     "specification": {
       "hl": 12,
       "hr": 14
@@ -37,8 +41,9 @@
   },
   {
     "id": 5,
-    "name": "Pose 5",
-    "video_url": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/5.mp4",
+    "poseName": "Pose 5",
+    "poster": "https://vinmec-prod.s3.amazonaws.com/images/20190625_080830_605352_shutterstock_552071.max-1800x1800.jpg",
+    "videoUrl": "https://ouchi-youga.s3-ap-southeast-1.amazonaws.com/5.mp4",
     "specification": {
       "hl": 12,
       "hr": 14

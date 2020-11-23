@@ -31,13 +31,13 @@ export default ({ $axios, app }, inject) => {
   )
   const backend = {
     getProgramList() {
-      return api.get('/program.json')
+      return api.get('/programs')
     },
     getProgramInfo(id) {
-      return api.get('/program.json')
+      return api.get('/programs/' + id)
     },
-    getPoseList(poseId) {
-      return api.get('/pose.json')
+    getPoseList(programId) {
+      return api.get('/poses?programId=' + programId)
     },
   }
   inject('backend', backend)

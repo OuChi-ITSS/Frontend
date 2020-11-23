@@ -1,30 +1,30 @@
 <template>
   <v-container class="fill-height" fluid>
     <v-row align="center" justify="center">
-      <v-col v-if="poseLists.length > 0" cols="12">
+      <v-col v-if="poseLists.length > 0" cols="12" lg="9">
         <v-stepper v-model="e1">
           <v-stepper-header>
             <template v-for="(pose, i) in poseLists">
               <v-stepper-step
+                :key="`${i}-step`"
                 :complete="e1 > i + 1"
                 editable
                 :step="i + 1"
-                :key="`${i}-step`"
               >
-                {{ pose.name }}
+                {{ pose.poseName }}
               </v-stepper-step>
               <v-divider :key="`${i}-div`"></v-divider>
             </template>
             <v-stepper-step :step="poseLists.length + 1">
-              {{ $t('completed') }}
+              {{ $t('training') }}
             </v-stepper-step>
           </v-stepper-header>
 
           <v-stepper-items>
             <v-stepper-content
-              class="gradientBG"
               v-for="(pose, i) in poseLists"
               :key="`${i}-content`"
+              class="gradientBG"
               :step="i + 1"
             >
               <v-card
@@ -33,22 +33,45 @@
                 justify="center"
                 elevation="0"
               >
-                <PoseDetail :src-vid="pose.video_url" />
-                <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
+                <PoseDetail :src-vid="pose.videoUrl" />
+                <!-- <v-btn class="my-5 px-8" color="primary" @click="e1 = i + 2">{{
                   $t('continue')
-                }}</v-btn>
+                }}</v-btn> -->
+                <v-btn
+                  class="mx-2 mb-6"
+                  fab
+                  dark
+                  large
+                  color="cyan"
+                  @click="e1 = i + 2"
+                >
+                  <v-icon dark> mdi-chevron-double-right </v-icon>
+                </v-btn>
               </v-card>
             </v-stepper-content>
             <v-stepper-content class="gradientBG" :step="poseLists.length + 1">
-              <v-card class="gradientBG" align="center" justify="center">
-                <h1 class="pt-12 pb-10 white--text">{{ $t('training') }}</h1>
+              <v-card
+                color="rgb(255, 0, 0, 0)"
+                align="center"
+                justify="center"
+                height="420"
+                elevation="0"
+              >
+                <h1
+                  class="pt-12 pb-10 white--text display-2"
+                  style="margin-top: 160px"
+                >
+                  {{ $t('training') }}
+                </h1>
                 <v-card-actions>
                   <v-btn
                     class="mx-auto white--text"
                     rounded
                     color="cyan"
                     elevation="0"
-                    @click="$router.push('/test')"
+                    @click="
+                      $router.push('/courses/' + $route.params.id + '/training')
+                    "
                   >
                     <v-icon>mdi-rocket-launch-outline</v-icon>
                   </v-btn>
@@ -81,9 +104,9 @@ export default {
   methods: {
     getPostInfo() {
       this.$backend
-        .getPoseList()
+        .getPoseList(this.$route.params.id)
         .then((e) => {
-          this.poseLists = JSON.parse(JSON.stringify(e.data))
+          this.poseLists = e.data
         })
         .catch((err) => {
           console.log(err)
