@@ -35,8 +35,7 @@ export default {
     },
     poster: {
       type: String,
-      default:
-        'https://vinmec-prod.s3.amazonaws.com/images/20190625_080830_605352_shutterstock_552071.max-1800x1800.jpg',
+      default: null,
     },
     srcVid: {
       type: String,

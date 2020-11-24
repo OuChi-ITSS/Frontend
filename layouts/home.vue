@@ -40,7 +40,7 @@
         </div>
         <v-img
           height="720"
-          src="/HeaderBg.jpeg"
+          src="/headerBg.jpeg"
           gradient="to top right, rgba(255, 252, 242,.3), rgba(229, 241, 238,.2)"
         ></v-img>
       </v-card>

@@ -6,7 +6,7 @@
   >
     <v-row>
       <v-col cols="12" align="center" justify="center">
-        <v-img src="/Congrant.png" height="320" contain> </v-img>
+        <v-img src="/Congrant.png" height="240" contain> </v-img>
       </v-col>
       <v-col cols="12" align="center" justify="center">
         <h1 class="display-1 mx-4 white--text">{{ $t('congratulation') }}</h1>

@@ -33,7 +33,7 @@
         >
           <strong>{{ progress }}%</strong>
         </v-progress-linear>
-        <div v-if="progress == 100"><CongratPage /></div>
+        <!-- <div v-if="progress == 100"><CongratPage /></div> -->
       </v-col>
     </v-row>
   </v-container>
@@ -233,6 +233,7 @@ export default {
         // TODO: chinh frontend cho phu hop
 		progressCheck() {
 			if (this.progress == 100) {
+				this.$router.push('/courses/' + this.$route.params.id + '/training/complete')
 				return
 			}
 			if (this.$posenetUtils.checkPose(checkData, data)) {
@@ -242,7 +243,7 @@ export default {
 				// }
 			}
 			clearTimeout(nIntervId)
-			nIntervId = setTimeout(this.progressCheck, 5000)
+			nIntervId = setTimeout(this.progressCheck, 3500)
 		},
 	},
 }
