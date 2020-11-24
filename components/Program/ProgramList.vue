@@ -1,6 +1,6 @@
 <template>
   <v-container class="fill-height justify-center" fluid>
-    <v-row dense>
+    <v-row dense align="center" justify="center">
       <v-col v-for="(item, i) in items" :key="i" cols="12" md="4" lg="3">
         <ProgramCard :id="item.id" />
       </v-col>
