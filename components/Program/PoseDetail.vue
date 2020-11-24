@@ -31,7 +31,7 @@ export default {
     },
     heightVid: {
       type: Number,
-      default: 600,
+      default: 420,
     },
     poster: {
       type: String,
