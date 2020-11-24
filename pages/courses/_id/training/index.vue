@@ -117,6 +117,7 @@ export default {
 		// console.log('data',dataList)
 	},
 	async mounted() {
+		checkData = dataList[dataIndex]
 		console.log('cam', this.$refs.webcam)
 		this.posenet = await posenet.load()
 		this.progressCheck()
@@ -232,15 +233,18 @@ export default {
         // Kiem tra tien do tap moi 3s, neu dung thi chuyen sang pose tiep theo
         // TODO: chinh frontend cho phu hop
 		progressCheck() {
+			// console.log("checkData", checkData);
 			if (this.progress == 100) {
 				this.$router.push('/courses/' + this.$route.params.id + '/training/complete')
+				dataIndex = 0
+				checkData = dataList[dataIndex]
 				return
 			}
 			if (this.$posenetUtils.checkPose(checkData, data)) {
 				this.progress += 100 / dataList.length
-				// if (dataIndex < dataList.length - 1) {
-				// 	checkData = dataList[++dataIndex]
-				// }
+				if (dataIndex < dataList.length - 1) {
+					checkData = dataList[++dataIndex]
+				}
 			}
 			clearTimeout(nIntervId)
 			nIntervId = setTimeout(this.progressCheck, 3500)
