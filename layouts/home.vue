@@ -30,7 +30,7 @@
                 <span class="red--text">YOGA AI</span>
               </h2>
               <div class="header--slogan-text">
-                <h1 class="display-3">
+                <h1 class="display-3 grey--text">
                   The Art of <br />
                   Interligent Movement
                 </h1>
@@ -73,7 +73,7 @@
               <div class="page--item-text">Upcoming Events</div>
             </v-img>
           </v-col>
-          <v-col cols="12" md="3" class="page--item hidden-md-and-down">
+          <v-col cols="12" md="3" class="page--item">
             <v-img
               class="page--item-img"
               gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"
@@ -84,7 +84,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-container style="min-height: 2400px">
+      <v-container>
         <v-main class="lightBg">
           <v-container>
             <nuxt />

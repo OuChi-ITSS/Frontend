@@ -33,6 +33,7 @@
         >
           <strong>{{ progress }}%</strong>
         </v-progress-linear>
+        <div v-if="progress == 100"><CongratPage /></div>
       </v-col>
     </v-row>
   </v-container>
@@ -43,6 +44,7 @@
 import * as tfjs from '@tensorflow/tfjs'
 import { WebCam } from 'vue-web-cam'
 import * as posenet from '@tensorflow-models/posenet'
+import CongratPage from '~/components/CongratPage'
 var nIntervId
 var data = {
 	leftArm: 0,
@@ -82,6 +84,7 @@ var checkData = dataList[dataIndex]
 export default {
 	components: {
 		WebCam,
+		CongratPage,
 	},
 	data() {
 		return {

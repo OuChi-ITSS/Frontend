@@ -33,7 +33,7 @@
   padding: 0 !important;
 }
 .page--item-img {
-  max-height: 240px;
+  height: 240px;
   position:relative;
 }
 .page--item-text {
@@ -41,7 +41,7 @@
   position:absolute;
   text-align:center;
   top: 42%;
-  font-size: 32px;
+  font-size: 24px;
   width: 100%;
   color: white;
 }
