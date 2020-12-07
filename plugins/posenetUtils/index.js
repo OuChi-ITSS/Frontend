@@ -125,6 +125,64 @@ export default ({ app }, inject) => {
         data.rightHip <= checkData.rightHip[1]
       )
     },
+    checkPoseGuide(checkData, data) {
+      const res = []
+      if (data.leftArm < checkData.leftArm[0]) {
+        res.push('Open your left arm a bit')
+      } else if (checkData.leftArm[1] < data.leftArm) {
+        res.push('Close your left arm a bit')
+      }
+      if (data.rightArm < checkData.rightArm[0]) {
+        res.push('Open your right arm a bit')
+      } else if (checkData.rightArm[1] < data.rightArm) {
+        res.push('Close your right arm a bit')
+      }
+      if (data.leftLeg < checkData.leftLeg[0]) {
+        res.push('Open your left leg a bit')
+      } else if (checkData.leftLeg[1] < data.leftLeg) {
+        res.push('Close your left leg a bit')
+      }
+      if (data.rightLeg < checkData.rightLeg[0]) {
+        res.push('Open your right leg a bit')
+      } else if (checkData.rightLeg[1] < data.rightLeg) {
+        res.push('Close your right leg a bit')
+      }
+      if (data.rightLeg < checkData.rightLeg[0]) {
+        res.push('Open your right leg a bit')
+      } else if (checkData.rightLeg[1] < data.rightLeg) {
+        res.push('Close your right leg a bit')
+      }
+      if (data.leftShoulder < checkData.leftShoulder[0]) {
+        res.push('Open your left shoulder a bit')
+      } else if (checkData.leftShoulder[1] < data.leftShoulder) {
+        res.push('Close your left shoulder a bit')
+      }
+      if (data.rightShoulder < checkData.rightShoulder[0]) {
+        res.push('Open your right shoulder a bit')
+      } else if (checkData.rightShoulder[1] < data.rightShoulder) {
+        res.push('Close your right shoulder a bit')
+      }
+      if (data.rightShoulder < checkData.rightShoulder[0]) {
+        res.push('Open your right shoulder a bit')
+      } else if (checkData.rightShoulder[1] < data.rightShoulder) {
+        res.push('Close your right shoulder a bit')
+      }
+      if (data.leftHip < checkData.leftHip[0]) {
+        res.push('Open your left hip a bit')
+      } else if (checkData.leftHip[1] < data.leftHip) {
+        res.push('Close your left hip a bit')
+      }
+      if (data.rightHip < checkData.rightHip[0]) {
+        res.push('Open your right hip a bit')
+      } else if (checkData.rightHip[1] < data.rightHip) {
+        res.push('Close your right hip a bit')
+      }
+      // for (let i = 0; i < keypoints.length; i++) {
+      //   const elm = { ...keypoints[i], ...keypointsChecked[i] }
+      //   res.push(elm)
+      // }
+      return res
+    },
     checkPoseDrawing(checkData, data, keypoints) {
       const keypointsChecked = [
         { check: 1 },

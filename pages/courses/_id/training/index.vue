@@ -35,6 +35,13 @@
         </v-progress-linear>
         <!-- <div v-if="progress == 100"><CongratPage /></div> -->
       </v-col>
+      <v-col cols="8">
+        <ul id="example-1">
+          <li v-for="guideText in guideTexts" :key="guideText">
+            {{ guideText }}
+          </li>
+        </ul>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -94,6 +101,7 @@ export default {
 			devices: [],
 			posenet: null,
 			progress: 0,
+			guideTexts: [],
 		}
 	},
 	watch: {
@@ -109,18 +117,23 @@ export default {
 			}
 		},
 	},
-	async created() {
+	// async created() {
+	// 	const resData = await this.$backend.getPoseList(this.$route.params.id)
+	// 	dataList = resData.data.map((datum) => {
+	// 		return JSON.parse(datum.specification)
+	// 	})
+	// 	console.log('data',dataList)
+	// },
+	async mounted() {
 		const resData = await this.$backend.getPoseList(this.$route.params.id)
 		dataList = resData.data.map((datum) => {
 			return JSON.parse(datum.specification)
 		})
-		// console.log('data',dataList)
-	},
-	async mounted() {
 		checkData = dataList[dataIndex]
 		console.log('cam', this.$refs.webcam)
 		this.posenet = await posenet.load()
 		this.progressCheck()
+		setTimeout(this.poseGuide, 5000)
 	},
 	methods: {
 		onCameras(cameras) {
@@ -249,6 +262,14 @@ export default {
 			clearTimeout(nIntervId)
 			nIntervId = setTimeout(this.progressCheck, 3500)
 		},
+		poseGuide() {
+			if (this.progress == 100) {
+				this.guideTexts = []
+				return;
+			}
+			this.guideTexts = this.$posenetUtils.checkPoseGuide(checkData, data)
+			setTimeout(this.poseGuide, 1000)
+		}
 	},
 }
 </script>
