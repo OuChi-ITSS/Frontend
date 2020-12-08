@@ -12,5 +12,25 @@
   "programList": "プログラムリスト",
   "poseList": "ポーズリスト",
   "poseGuide": "ポーズガイド",
-  "congratulation" : "完成！おめでとう"
+  "congratulation" : "完成！おめでとう",
+  "imasugutamesu": "今すぐ試す",
+  "validation": {
+    "passLenght": "パスワードは３文字以上です",
+    "passRequired": "パスワードを入力してください",
+    "usernameLenght": "ユーザー名は３文字以上です",
+    "usernameRequired": "ユーザー名を入力してください",
+    "require": "入力してください",
+    "limitLength": "長さは３文字以上です",
+    "ageLimits": "年齢制限は３歳以上です"
+  },
+  "Authen": {
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "name":"名前",
+    "age": "年齢",
+    "register": "登録",
+    "login": "ログイン",
+    "signup": "サインアップ",
+    "signin": "サインイン"
+  }
 }
