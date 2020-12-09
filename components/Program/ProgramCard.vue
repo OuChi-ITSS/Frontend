@@ -36,8 +36,10 @@
         </div>
 
         <v-fade-transition>
-          <v-overlay v-if="hover" absolute color="#036358" @click="getPose">
-            <v-btn class="blue lighten-1" outlined>{{ $t('start') }}</v-btn>
+          <v-overlay v-if="hover" absolute color="#036358">
+            <v-btn class="blue lighten-1" outlined @click="getPose">{{
+              $t('start')
+            }}</v-btn>
           </v-overlay>
         </v-fade-transition>
       </v-card>
@@ -63,11 +65,11 @@ export default {
     this.$backend
       .getProgramInfo(this.id)
       .then((e) => {
-        this.item = e.data
+        // this.item = e.data
         // DELME
-        // this.item = JSON.parse(JSON.stringify(e.data)).find(
-        //   (e) => e.id === this.id
-        // )
+        this.item = JSON.parse(JSON.stringify(e.data)).find(
+          (e) => e.id === this.id
+        )
       })
       .catch((err) => {
         console.log(err)
@@ -75,7 +77,7 @@ export default {
   },
   methods: {
     getPose() {
-      this.item = this.$router.push('/courses/' + this.id)
+      this.$router.push('/courses/' + this.id)
     },
   },
 }

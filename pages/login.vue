@@ -1,7 +1,12 @@
 <template>
   <v-container class="authen-page" fill-height fluid>
     <v-row align="top" justify="center">
-      <v-col cols="12" md="8" style="background-color: white">
+      <v-col
+        class="rounded-lg"
+        cols="12"
+        md="8"
+        style="background-color: white"
+      >
         <v-row>
           <v-col cols="12">
             <v-img contain height="125" src="/logo.png" alt="App's Logo" />
@@ -12,7 +17,7 @@
                 {{ $t('Authen.signup') }}
               </div>
               <template>
-                <v-form ref="loginForm" v-model="valid" lazy-validation>
+                <v-form ref="registerForm" v-model="valid" lazy-validation>
                   <v-text-field
                     v-model="login.username"
                     :rules="nameRules"
@@ -42,7 +47,7 @@
                     required
                   ></v-text-field>
                   <div class="text-center mt-3">
-                    <v-btn color="error" class="mx-auto" @click="userLogin">
+                    <v-btn color="error" class="mx-auto" @click="userRegister">
                       {{ $t('Authen.register') }}
                     </v-btn>
                   </div>
@@ -56,7 +61,7 @@
                 {{ $t('Authen.signin') }}
               </div>
               <template>
-                <v-form ref="registerForm" v-model="valid" lazy-validation>
+                <v-form ref="loginForm" v-model="valid" lazy-validation>
                   <v-text-field
                     v-model="register.username"
                     :rules="nameRules"
@@ -67,15 +72,12 @@
                   <v-text-field
                     v-model="register.password"
                     :rules="passRules"
+                    type="password"
                     :label="$t('Authen.password')"
                     required
                   ></v-text-field>
                   <div class="text-center mt-3">
-                    <v-btn
-                      color="success"
-                      class="mx-auto"
-                      @click="userRegister"
-                    >
+                    <v-btn color="success" class="mx-auto" @click="userLogin">
                       {{ $t('Authen.login') }}
                     </v-btn>
                   </div>
@@ -129,7 +131,7 @@ export default {
       }
     },
     userRegister() {
-      if (this.$refs.loginForm.validate()) {
+      if (this.$refs.registerForm.validate()) {
         this.$router.push('/')
       }
     },

@@ -20,10 +20,31 @@
           </v-container>
         </div>
         <v-img
-          height="720"
+          height="100vh"
           src="/headerBg.jpeg"
           gradient="to top right, rgba(255, 252, 242,.3), rgba(229, 241, 238,.2)"
-        ></v-img>
+          relative
+        >
+          <div
+            height="20vh"
+            style="position: absolute; bottom: 24px; left: 40%"
+          >
+            <v-col cols="12" align="center" justify="center">
+              <v-btn
+                class="py-5 px-12"
+                elevation="0"
+                rounded
+                color="error"
+                to="/courses"
+              >
+                <!-- <v-icon x-large> mdi-presentation-play </v-icon> -->
+                <div class="title text-center" color="primary">
+                  {{ $t('imasugutamesu') }}
+                </div>
+              </v-btn>
+            </v-col>
+          </div>
+        </v-img>
       </v-card>
       <!-- <v-container fluid class="pa-0">
         <v-row>

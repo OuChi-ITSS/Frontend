@@ -1,16 +1,19 @@
 <template>
-  <v-container class="justify-center" fill-height fluid>
-    <v-row align="center" justify="center">
-      <div height="420" style="height: 320px">
-        <div class="display-3 my-16">{{ $t('imasugutamesu') }}</div>
-        <v-col cols="12" align="center" justify="center">
-          <v-btn fab elevation="0" text color="error" to="/courses">
+  <div></div>
+  <!-- <v-container justify="center" align="end" fill-height fluid>
+    <v-row align="end" justify="center">
+      <div height="20vh">
+        <v-col cols="12" align="end" justify="center">
+          <v-btn class="py-6 px-12" elevation="0" color="primary" to="/courses">
             <v-icon x-large> mdi-presentation-play </v-icon>
+            <div class="display-1" color="error">
+              {{ $t('imasugutamesu') }}
+            </div>
           </v-btn>
         </v-col>
       </div>
     </v-row>
-  </v-container>
+  </v-container> -->
 </template>
 <script>
 export default {

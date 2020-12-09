@@ -62,9 +62,9 @@ export default {
       this.$backend
         .getProgramList()
         .then((e) => {
-          this.items = e.data.results
+          // this.items = e.data.results
           // DELME
-          // this.items = JSON.parse(JSON.stringify(e.data))
+          this.items = JSON.parse(JSON.stringify(e.data))
         })
         .catch((err) => {
           console.log(err)
