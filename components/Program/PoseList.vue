@@ -57,7 +57,7 @@
                 height="420"
                 elevation="0"
               >
-                <h1
+                <!-- <h1
                   class="pt-12 pb-10 white--text display-2"
                   style="margin-top: 160px"
                 >
@@ -75,6 +75,52 @@
                   >
                     <v-icon>mdi-rocket-launch-outline</v-icon>
                   </v-btn>
+                </v-card-actions> -->
+                <h1
+                  class="pt-12 pb-10 white--text display-2"
+                  style="margin-top: 160px"
+                >
+                  今すぐ購入
+                </h1>
+                <v-card-actions>
+                  <v-dialog v-model="dialog" persistent max-width="400">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="mx-auto white--text"
+                        rounded
+                        x-large
+                        color="cyan"
+                        elevation="0"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <v-icon>mdi-cart-outline</v-icon> $100
+                      </v-btn>
+                    </template>
+                    <v-card>
+                      <v-card-title class="headline"> 購入確認 </v-card-title>
+                      <v-card-text
+                        >このプログラムを購入します。よろしいですか。</v-card-text
+                      >
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          color="red darken-1"
+                          text
+                          @click="dialog = false"
+                        >
+                          いいえ
+                        </v-btn>
+                        <v-btn
+                          color="cyan darken-1"
+                          text
+                          @click="dialog = false"
+                        >
+                          はい
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
                 </v-card-actions>
               </v-card>
             </v-stepper-content>
@@ -96,6 +142,7 @@ export default {
     return {
       poseLists: [],
       e1: 1,
+      dialog: false,
     }
   },
   created() {
