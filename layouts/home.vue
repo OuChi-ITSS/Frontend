@@ -13,9 +13,22 @@
               <div class="header--slogan-text">
                 <h1 class="display-3 grey--text">
                   The Art of <br />
-                  Interligent Movement
+                  Intelligent Movement
                 </h1>
               </div>
+            </div>
+            <div class="header--button">
+              <v-btn
+                class="py-5 px-12"
+                elevation="0"
+                rounded
+                color="error"
+                to="/courses"
+              >
+                <div class="title text-center" color="primary">
+                  {{ $t('imasugutamesu') }}
+                </div>
+              </v-btn>
             </div>
           </v-container>
         </div>
@@ -25,7 +38,7 @@
           gradient="to top right, rgba(255, 252, 242,.3), rgba(229, 241, 238,.2)"
           relative
         >
-          <div
+          <!-- <div
             height="20vh"
             style="position: absolute; bottom: 24px; left: 40%"
           >
@@ -37,13 +50,13 @@
                 color="error"
                 to="/courses"
               >
-                <!-- <v-icon x-large> mdi-presentation-play </v-icon> -->
+                <v-icon x-large> mdi-presentation-play </v-icon>
                 <div class="title text-center" color="primary">
                   {{ $t('imasugutamesu') }}
                 </div>
               </v-btn>
             </v-col>
-          </div>
+          </div> -->
         </v-img>
       </v-card>
       <!-- <v-container fluid class="pa-0">
@@ -86,13 +99,13 @@
           </v-col>
         </v-row>
       </v-container> -->
-      <v-container>
+      <!-- <v-container>
         <v-main class="lightBg">
           <v-container>
             <nuxt />
           </v-container>
         </v-main>
-      </v-container>
+      </v-container> -->
     </v-card>
   </v-app>
 </template>

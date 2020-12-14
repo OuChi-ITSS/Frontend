@@ -37,8 +37,8 @@
       </v-col>
       <v-col cols="8">
         <ul id="example-1">
-          <li v-for="guideText in guideTexts" :key="guideText">
-            {{ guideText }}
+          <li v-for="index in 2" :key="index">
+            {{ guideTexts[index - 1] }}
           </li>
         </ul>
       </v-col>

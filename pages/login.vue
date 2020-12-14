@@ -19,14 +19,14 @@
               <template>
                 <v-form ref="registerForm" v-model="valid" lazy-validation>
                   <v-text-field
-                    v-model="login.username"
+                    v-model="register.username"
                     :rules="nameRules"
                     :label="$t('Authen.username')"
                     required
                   ></v-text-field>
 
                   <v-text-field
-                    v-model="login.password"
+                    v-model="register.password"
                     :rules="passRules"
                     type="password"
                     :label="$t('Authen.password')"
@@ -34,13 +34,13 @@
                   ></v-text-field>
 
                   <v-text-field
-                    v-model="login.name"
-                    :rules="fieldLenght"
-                    :label="$t('Authen.name')"
+                    v-model="register.email"
+                    :rules="emailRules"
+                    :label="$t('Authen.email')"
                     required
                   ></v-text-field>
                   <v-text-field
-                    v-model="login.age"
+                    v-model="register.age"
                     type="number"
                     :rules="ageRules"
                     :label="$t('Authen.age')"
@@ -63,14 +63,14 @@
               <template>
                 <v-form ref="loginForm" v-model="valid" lazy-validation>
                   <v-text-field
-                    v-model="register.username"
-                    :rules="nameRules"
-                    :label="$t('Authen.username')"
+                    v-model="login.email"
+                    :rules="emailRules"
+                    :label="$t('Authen.email')"
                     required
                   ></v-text-field>
 
                   <v-text-field
-                    v-model="register.password"
+                    v-model="login.password"
                     :rules="passRules"
                     type="password"
                     :label="$t('Authen.password')"
@@ -88,6 +88,15 @@
         </v-row>
       </v-col>
     </v-row>
+    <v-snackbar v-model="snackbar" :timeout="timeout" color="error">
+      {{ text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="black" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 <script>
@@ -95,16 +104,24 @@ export default {
   layout: 'login',
   data() {
     return {
-      login: {
-        username: '',
-        password: '',
-        name: '',
-        age: '',
-      },
       register: {
         username: '',
         password: '',
+        email: '',
+        age: '',
       },
+      login: {
+        email: '',
+        password: '',
+      },
+      emailRules: [
+        (v) => !!v || this.$t('validation.require'),
+        (v) => (v && v.length >= 3) || this.$t('validation.limitLength'),
+        (v) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(v) || this.$t('validation.emailFormat')
+        },
+      ],
       nameRules: [
         (v) => !!v || this.$t('validation.usernameRequired'),
         (v) => (v && v.length >= 3) || this.$t('validation.usernameLenght'),
@@ -121,18 +138,55 @@ export default {
         (v) => !!v || this.$t('validation.require'),
         (v) => (v && v >= 3) || this.$t('validation.ageLimits'),
       ],
+      snackbar: false,
+      text: null,
+      timeout: 2000,
     }
   },
 
   methods: {
     userLogin() {
       if (this.$refs.loginForm.validate()) {
-        this.$router.push('/')
+        this.$backend
+          .login(this.login)
+          .then((e) => {
+            localStorage.setItem('token', e.data.token)
+            // this.item = e.data
+            this.$router.push('/')
+          })
+          .catch((err) => {
+            console.log(err.response.data.message)
+            this.text = err.response.data.message
+            this.snackbar = true
+          })
       }
     },
     userRegister() {
       if (this.$refs.registerForm.validate()) {
-        this.$router.push('/')
+        this.$backend
+          .register(this.register)
+          .then((e) => {
+            this.$backend
+              .login({
+                email: this.register.email,
+                password: this.register.password,
+              })
+              .then((e) => {
+                localStorage.setItem('token', e.data.token)
+                // this.item = e.data
+                this.$router.push('/')
+              })
+              .catch((err) => {
+                console.log(err.response.data.message)
+                this.text = err.response.data.message
+                this.snackbar = true
+              })
+          })
+          .catch((err) => {
+            console.log(err.response.data.message)
+            this.text = err.response.data.message
+            this.snackbar = true
+          })
       }
     },
   },

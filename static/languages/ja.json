@@ -19,6 +19,7 @@
     "passRequired": "パスワードを入力してください",
     "usernameLenght": "ユーザー名は３文字以上です",
     "usernameRequired": "ユーザー名を入力してください",
+    "emailFormat": "メールアドレスのフォーマットが正しくありません",
     "require": "入力してください",
     "limitLength": "長さは３文字以上です",
     "ageLimits": "年齢制限は３歳以上です"
@@ -26,7 +27,7 @@
   "Authen": {
     "username": "ユーザー名",
     "password": "パスワード",
-    "name":"名前",
+    "email":"メールアドレス",
     "age": "年齢",
     "register": "登録",
     "login": "ログイン",

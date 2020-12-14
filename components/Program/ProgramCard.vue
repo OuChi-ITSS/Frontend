@@ -16,7 +16,7 @@
               </h2>
               {{ item.introduction }}
             </v-card-text>
-            <v-card-title class="pt-0">
+            <!-- <v-card-title class="pt-0">
               <v-rating
                 :value="4"
                 dense
@@ -26,13 +26,13 @@
                 class="mr-2"
               ></v-rating>
               <span class="primary--text subtitle-2">64 レビューア</span>
-            </v-card-title>
+            </v-card-title> -->
           </div>
-          <v-avatar v-if="!!item.bought" class="ma-3" size="35" tile>
+          <!-- <v-avatar v-if="!!item.bought" class="ma-3" size="35" tile>
             <v-icon large color="orange darken-2">
               mdi-checkbox-marked-outline
             </v-icon>
-          </v-avatar>
+          </v-avatar> -->
         </div>
 
         <v-fade-transition>
@@ -65,11 +65,11 @@ export default {
     this.$backend
       .getProgramInfo(this.id)
       .then((e) => {
-        // this.item = e.data
+        this.item = e.data
         // DELME
-        this.item = JSON.parse(JSON.stringify(e.data)).find(
-          (e) => e.id === this.id
-        )
+        // this.item = JSON.parse(JSON.stringify(e.data)).find(
+        //   (e) => e.id === this.id
+        // )
       })
       .catch((err) => {
         console.log(err)
