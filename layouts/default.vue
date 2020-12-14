@@ -11,8 +11,8 @@
               @click="$router.push('/')"
             />
             <v-spacer></v-spacer>
-            <v-btn icon class="headerBtn">
-              <v-icon size="42">mdi-magnify</v-icon>
+            <v-btn icon class="headerBtn" @click="logOut">
+              <v-icon size="42">mdi-logout</v-icon>
             </v-btn>
           </v-toolbar>
         </v-row>
@@ -49,6 +49,19 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    logOut() {
+      this.$backend
+        .logout(localStorage.getItem('token'))
+        .then((e) => {
+          localStorage.removeItem('token')
+          this.$router.push('/')
+        })
+        .catch((err) => {
+          console.log(err.response.data.message)
+        })
+    },
   },
 }
 </script>

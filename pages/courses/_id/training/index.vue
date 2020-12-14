@@ -37,7 +37,7 @@
       </v-col>
       <v-col cols="8">
         <ul id="example-1">
-          <li v-for="index in 2" :key="index">
+          <li v-for="index in range" :key="index">
             {{ guideTexts[index - 1] }}
           </li>
         </ul>
@@ -93,6 +93,7 @@ export default {
 		WebCam,
 		CongratPage,
 	},
+	middleware: 'authenticated',
 	data() {
 		return {
 			img: null,
@@ -116,6 +117,11 @@ export default {
 				this.deviceId = first.deviceId
 			}
 		},
+	},
+	computed: {
+		range:  function () {
+			return this.guideTexts.length >= 2 ? 2 : this.guideTexts.length
+		}
 	},
 	// async created() {
 	// 	const resData = await this.$backend.getPoseList(this.$route.params.id)

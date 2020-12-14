@@ -15,5 +15,6 @@ export default {
   components: {
     ProgramList,
   },
+  middleware: 'authenticated',
 }
 </script>

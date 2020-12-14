@@ -51,8 +51,16 @@ export default ({ $axios, app }, inject) => {
     register(creds) {
       return api.post('/auth/register', creds)
     },
-    logout() {
-      return api.post('/auth/logout')
+    logout(token) {
+      return api.post(
+        '/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
     },
   }
   inject('backend', backend)
