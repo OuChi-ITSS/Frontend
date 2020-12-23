@@ -28,11 +28,16 @@
               <span class="primary--text subtitle-2">64 レビューア</span>
             </v-card-title> -->
           </div>
-          <!-- <v-avatar v-if="!!item.bought" class="ma-3" size="35" tile>
+          <v-avatar
+            v-if="item.status === 'fulfilled'"
+            class="ma-3"
+            size="35"
+            tile
+          >
             <v-icon large color="orange darken-2">
               mdi-checkbox-marked-outline
             </v-icon>
-          </v-avatar> -->
+          </v-avatar>
         </div>
 
         <v-fade-transition>
@@ -49,35 +54,21 @@
 <script>
 export default {
   props: {
-    id: {
-      type: Number,
+    item: {
+      type: Object,
       required: true,
     },
   },
   data() {
     return {
       loading: false,
-      item: {},
+      // item: {},
       overlay: false,
     }
   },
-  created() {
-    this.$backend
-      .getProgramInfo(this.id)
-      .then((e) => {
-        this.item = e.data
-        // DELME
-        // this.item = JSON.parse(JSON.stringify(e.data)).find(
-        //   (e) => e.id === this.id
-        // )
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  },
   methods: {
     getPose() {
-      this.$router.push('/courses/' + this.id)
+      this.$router.push('/courses/' + this.item.id)
     },
   },
 }

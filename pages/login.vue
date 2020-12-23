@@ -88,7 +88,7 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-snackbar v-model="snackbar" :timeout="timeout" color="error">
+    <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
       {{ text }}
 
       <template v-slot:action="{ attrs }">
@@ -141,6 +141,7 @@ export default {
       snackbar: false,
       text: null,
       timeout: 2000,
+      color: null,
     }
   },
 
@@ -150,6 +151,9 @@ export default {
         this.$backend
           .login(this.login)
           .then((e) => {
+            this.text = 'Success'
+            this.color = 'success'
+            this.snackbar = true
             localStorage.setItem('token', e.data.token)
             // this.item = e.data
             this.$router.push('/')
@@ -157,6 +161,7 @@ export default {
           .catch((err) => {
             console.log(err.response.data.message)
             this.text = err.response.data.message
+            this.color = 'error'
             this.snackbar = true
           })
       }
@@ -172,6 +177,9 @@ export default {
                 password: this.register.password,
               })
               .then((e) => {
+                this.text = 'Success'
+                this.color = 'success'
+                this.snackbar = true
                 localStorage.setItem('token', e.data.token)
                 // this.item = e.data
                 this.$router.push('/')
@@ -179,12 +187,14 @@ export default {
               .catch((err) => {
                 console.log(err.response.data.message)
                 this.text = err.response.data.message
+                this.color = 'error'
                 this.snackbar = true
               })
           })
           .catch((err) => {
             console.log(err.response.data.message)
             this.text = err.response.data.message
+            this.color = 'error'
             this.snackbar = true
           })
       }

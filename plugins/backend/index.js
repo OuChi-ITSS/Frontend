@@ -35,8 +35,30 @@ export default ({ $axios, app }, inject) => {
       // DELME
       // return api.get('/program.json')
     },
-    getProgramInfo(id) {
-      return api.get('/programs/' + id)
+    getBoughtProgramList(token) {
+      return api.get('/orders', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      // DELME
+      // return api.get('/program.json')
+    },
+    getAvailableProgramList(token) {
+      return api.get('/programs/available', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      // DELME
+      // return api.get('/program.json')
+    },
+    getProgramInfo(id, token) {
+      return api.get('/programs/' + id, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
       // DELME
       // return api.get('/program.json')
     },
@@ -44,6 +66,19 @@ export default ({ $axios, app }, inject) => {
       return api.get('/poses?programId=' + programId)
       // DELME
       // return api.get('/pose.json')
+    },
+    buyProgram(id, token) {
+      return api.post(
+        '/orders/take',
+        {
+          programId: id,
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
     },
     login(creds) {
       return api.post('/auth/login', creds)

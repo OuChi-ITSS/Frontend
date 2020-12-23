@@ -51,6 +51,7 @@
             </v-stepper-content>
             <v-stepper-content class="gradientBG" :step="poseLists.length + 1">
               <v-card
+                v-if="program.status === 'fulfilled'"
                 color="rgb(255, 0, 0, 0)"
                 align="center"
                 justify="center"
@@ -77,11 +78,71 @@
                   </v-btn>
                 </v-card-actions>
               </v-card>
+              <v-card
+                v-else
+                color="rgb(255, 0, 0, 0)"
+                align="center"
+                justify="center"
+                height="420"
+                elevation="0"
+              >
+                <h1
+                  class="pt-12 pb-10 white--text display-2"
+                  style="margin-top: 160px"
+                >
+                  今すぐ購入
+                </h1>
+                <v-card-actions>
+                  <v-dialog v-model="dialog" persistent max-width="400">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="mx-auto white--text"
+                        rounded
+                        x-large
+                        color="cyan"
+                        elevation="0"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <v-icon>mdi-cart-outline</v-icon> ${{ program.price }}
+                      </v-btn>
+                    </template>
+                    <v-card>
+                      <v-card-title class="headline"> 購入確認 </v-card-title>
+                      <v-card-text
+                        >このプログラムを購入します。よろしいですか。</v-card-text
+                      >
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          color="red darken-1"
+                          text
+                          @click="dialog = false"
+                        >
+                          いいえ
+                        </v-btn>
+                        <v-btn color="cyan darken-1" text @click="buyProgram">
+                          はい
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </v-card-actions>
+              </v-card>
             </v-stepper-content>
           </v-stepper-items>
         </v-stepper>
       </v-col>
     </v-row>
+    <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
+      {{ text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="black" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -95,21 +156,45 @@ export default {
   data() {
     return {
       poseLists: [],
+      program: null,
+      dialog: false,
       e1: 1,
+      snackbar: false,
+      text: null,
+      timeout: 2000,
+      color: 'success',
     }
   },
   created() {
-    this.getPostInfo()
+    this.getProgramInfo()
   },
   methods: {
-    getPostInfo() {
+    getProgramInfo() {
       this.$backend
-        .getPoseList(this.$route.params.id)
+        .getProgramInfo(this.$route.params.id, localStorage.getItem('token'))
         .then((e) => {
-          this.poseLists = e.data
+          this.poseLists = e.data.poses
+          this.program = e.data
         })
         .catch((err) => {
           console.log(err)
+        })
+    },
+    buyProgram() {
+      this.$backend
+        .buyProgram(this.$route.params.id, localStorage.getItem('token'))
+        .then((e) => {
+          this.text = 'Success'
+          this.color = 'success'
+          this.snackbar = true
+          this.dialog = false
+          this.$router.push('/courses/' + this.$route.params.id + '/training')
+        })
+        .catch((err) => {
+          console.log(err.response.data.message)
+          this.text = err.response.data.message
+          this.color = 'error'
+          this.snackbar = true
         })
     },
   },
