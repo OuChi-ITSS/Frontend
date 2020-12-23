@@ -32,12 +32,70 @@ export default ({ $axios, app }, inject) => {
   const backend = {
     getProgramList() {
       return api.get('/programs')
+      // DELME
+      // return api.get('/program.json')
     },
-    getProgramInfo(id) {
-      return api.get('/programs/' + id)
+    getBoughtProgramList(token) {
+      return api.get('/orders', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      // DELME
+      // return api.get('/program.json')
+    },
+    getAvailableProgramList(token) {
+      return api.get('/programs/available', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      // DELME
+      // return api.get('/program.json')
+    },
+    getProgramInfo(id, token) {
+      return api.get('/programs/' + id, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      // DELME
+      // return api.get('/program.json')
     },
     getPoseList(programId) {
       return api.get('/poses?programId=' + programId)
+      // DELME
+      // return api.get('/pose.json')
+    },
+    buyProgram(id, token) {
+      return api.post(
+        '/orders/take',
+        {
+          programId: id,
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
+    },
+    login(creds) {
+      return api.post('/auth/login', creds)
+    },
+    register(creds) {
+      return api.post('/auth/register', creds)
+    },
+    logout(token) {
+      return api.post(
+        '/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
     },
   }
   inject('backend', backend)

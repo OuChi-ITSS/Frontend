@@ -147,20 +147,10 @@ export default ({ app }, inject) => {
       } else if (checkData.rightLeg[1] < data.rightLeg) {
         res.push('Close your right leg a bit')
       }
-      if (data.rightLeg < checkData.rightLeg[0]) {
-        res.push('Open your right leg a bit')
-      } else if (checkData.rightLeg[1] < data.rightLeg) {
-        res.push('Close your right leg a bit')
-      }
       if (data.leftShoulder < checkData.leftShoulder[0]) {
         res.push('Open your left shoulder a bit')
       } else if (checkData.leftShoulder[1] < data.leftShoulder) {
         res.push('Close your left shoulder a bit')
-      }
-      if (data.rightShoulder < checkData.rightShoulder[0]) {
-        res.push('Open your right shoulder a bit')
-      } else if (checkData.rightShoulder[1] < data.rightShoulder) {
-        res.push('Close your right shoulder a bit')
       }
       if (data.rightShoulder < checkData.rightShoulder[0]) {
         res.push('Open your right shoulder a bit')
@@ -243,6 +233,8 @@ export default ({ app }, inject) => {
         keypointsChecked[7].check = 1
         keypointsChecked[5].check = 1
         keypointsChecked[11].check = 1
+      } else {
+        keypointsChecked[5].check = 0
       }
       if (
         checkData.rightShoulder[0] <= data.rightShoulder &&
@@ -251,6 +243,8 @@ export default ({ app }, inject) => {
         keypointsChecked[8].check = 1
         keypointsChecked[6].check = 1
         keypointsChecked[12].check = 1
+      } else {
+        keypointsChecked[6].check = 0
       }
       if (
         checkData.leftHip[0] <= data.leftHip &&
@@ -259,6 +253,8 @@ export default ({ app }, inject) => {
         keypointsChecked[5].check = 1
         keypointsChecked[11].check = 1
         keypointsChecked[13].check = 1
+      } else {
+        keypointsChecked[11].check = 0
       }
       if (
         checkData.rightHip[0] <= data.rightHip &&
@@ -267,6 +263,8 @@ export default ({ app }, inject) => {
         keypointsChecked[6].check = 1
         keypointsChecked[12].check = 1
         keypointsChecked[14].check = 1
+      } else {
+        keypointsChecked[12].check = 0
       }
       for (let i = 0; i < keypoints.length; i++) {
         const elm = { ...keypoints[i], ...keypointsChecked[i] }

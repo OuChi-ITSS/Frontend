@@ -10,5 +10,6 @@ export default {
   components: {
     CongratPage,
   },
+  middleware: 'authenticated',
 }
 </script>

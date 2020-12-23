@@ -12,7 +12,8 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.12.3",
     "@nuxtjs/toast": "^3.3.1",
     "@tensorflow-models/posenet": "^2.2.1",
     "@tensorflow/tfjs": "^2.7.0",
@@ -21,8 +22,7 @@
     "nuxt-i18n": "^6.15.4",
     "query-string": "^6.13.7",
     "vue-video-player": "^5.0.2",
-    "vue-web-cam": "^1.9.0",
-    "vueperslides": "^3.1.0"
+    "vue-web-cam": "^1.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

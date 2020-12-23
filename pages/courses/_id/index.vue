@@ -14,5 +14,6 @@ export default {
   components: {
     PoseList,
   },
+  middleware: 'authenticated',
 }
 </script>

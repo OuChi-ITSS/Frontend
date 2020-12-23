@@ -1,44 +1,50 @@
 [
   {
     "id": 1,
-    "introduction": "Video 1",
+    "programName": "Video 1",
     "imageUrl": "https://www.history.com/.image/t_share/MTY0OTE4ODAzMDQwMzE0Njg1/yoga-gettyimages-1142820079-promo.jpg",
     "pose": [1, 2, 3],
-    "intro": "Third Eye Yoga"
+    "introduction": "Third Eye Yoga",
+    "bought": 0
   },
   {
     "id": 2,
-    "introduction": "Video 2",
+    "programName": "Video 2",
     "imageUrl": "https://post.healthline.com/wp-content/uploads/2019/09/Female_Yoga_732x549-thumbnail.jpg",
     "pose": [1, 2, 3],
-    "intro": "Center Yoga"
+    "introduction": "Center Yoga",
+    "bought": 1
   },
   {
     "id": 3,
-    "introduction": "Video 3",
+    "programName": "Video 3",
     "imageUrl": "https://image.freepik.com/free-photo/group-children-are-engaged-yoga-with-trainer-ocean_110955-452.jpg",
     "pose": [1, 2, 3],
-    "intro": "Within Yoga"
+    "introduction": "Within Yoga",
+    "bought": 0
   },
   {
     "id": 4,
-    "introduction": "Video 4",
+    "programName": "Video 4",
     "imageUrl": "https://www.natalierousseau.com/wp-content/uploads/2018/09/DSC_1860-2.jpg",
     "pose": [1, 2, 3],
-    "intro": "Drishti Yoga"
+    "introduction": "Drishti Yoga",
+    "bought": 1
   },
   {
     "id": 5,
-    "introduction": "Video 5",
+    "programName": "Video 5",
     "imageUrl": "https://imgc.allpostersimages.com/img/print/u-g-Q1BVARZ0.jpg",
     "pose": [1, 2, 3],
-    "intro": "Deep Roots Yoga"
+    "introduction": "Deep Roots Yoga",
+    "bought": 0
   },
   {
     "id": 6,
-    "introduction": "Video 6",
+    "programName": "Video 6",
     "imageUrl": "https://specials-images.forbesimg.com/imageserve/5e7a3abfd8e1ae0007b763fc/960x0.jpg",
     "pose": [1, 2, 3],
-    "intro": "Eight Limbs Yoga"
+    "introduction": "Eight Limbs Yoga",
+    "bought": 1
   }
 ]

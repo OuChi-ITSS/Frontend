@@ -4,25 +4,6 @@
       <v-card elevation="0">
         <div class="home--toolbar">
           <v-container>
-            <v-row align="center">
-              <v-col cols="6" justify="left">
-                <img
-                  class="appLogo"
-                  src="/logo.png"
-                  alt="App's Logo"
-                  @click="$router.push('/')"
-                />
-              </v-col>
-              <v-col cols="6" class="text-right">
-                <v-btn icon class="headerBtn" @click="$router.push('/test')">
-                  <v-icon size="42">mdi-walk</v-icon>
-                </v-btn>
-
-                <v-btn icon class="headerBtn">
-                  <v-icon size="42">mdi-magnify</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
             <div class="header--slogan">
               <div class="header--divide"></div>
               <h2 class="display-1" style="display: inline">
@@ -32,19 +13,53 @@
               <div class="header--slogan-text">
                 <h1 class="display-3 grey--text">
                   The Art of <br />
-                  Interligent Movement
+                  Intelligent Movement
                 </h1>
               </div>
+            </div>
+            <div class="header--button">
+              <v-btn
+                class="py-5 px-12"
+                elevation="0"
+                rounded
+                color="error"
+                to="/courses"
+              >
+                <div class="title text-center" color="primary">
+                  {{ $t('imasugutamesu') }}
+                </div>
+              </v-btn>
             </div>
           </v-container>
         </div>
         <v-img
-          height="720"
+          height="100vh"
           src="/headerBg.jpeg"
           gradient="to top right, rgba(255, 252, 242,.3), rgba(229, 241, 238,.2)"
-        ></v-img>
+          relative
+        >
+          <!-- <div
+            height="20vh"
+            style="position: absolute; bottom: 24px; left: 40%"
+          >
+            <v-col cols="12" align="center" justify="center">
+              <v-btn
+                class="py-5 px-12"
+                elevation="0"
+                rounded
+                color="error"
+                to="/courses"
+              >
+                <v-icon x-large> mdi-presentation-play </v-icon>
+                <div class="title text-center" color="primary">
+                  {{ $t('imasugutamesu') }}
+                </div>
+              </v-btn>
+            </v-col>
+          </div> -->
+        </v-img>
       </v-card>
-      <v-container fluid class="pa-0">
+      <!-- <v-container fluid class="pa-0">
         <v-row>
           <v-col cols="12" md="3" class="page--item">
             <v-img
@@ -83,14 +98,14 @@
             </v-img>
           </v-col>
         </v-row>
-      </v-container>
-      <v-container>
+      </v-container> -->
+      <!-- <v-container>
         <v-main class="lightBg">
           <v-container>
             <nuxt />
           </v-container>
         </v-main>
-      </v-container>
+      </v-container> -->
     </v-card>
   </v-app>
 </template>

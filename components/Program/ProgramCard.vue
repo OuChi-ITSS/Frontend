@@ -1,93 +1,75 @@
 <template>
-  <v-hover v-slot="{ hover }">
-    <v-card :loading="loading" class="ma-5 mx-auto" max-width="360">
-      <template slot="progress">
-        <v-progress-linear
-          color="grey darken-3"
-          height="10"
-          indeterminate
-        ></v-progress-linear>
-      </template>
-
-      <v-img v-if="!!itemInfo" height="250" :src="itemInfo.imageUrl">
-        <v-expand-transition>
-          <div
-            v-if="hover"
-            class="d-flex transition-fast-in-fast-out grey darken-4 v-card--reveal display-3 white--text"
-            style="height: 100%"
-          >
-            <v-card :loading="loading" max-width="360" elevation="0">
-              <v-card-title>{{ itemInfo.programName }}</v-card-title>
-              <v-card-subtitle>
-                {{ itemInfo.introduction }}
-              </v-card-subtitle>
-
-              <v-card-text>
-                <v-row align="center" class="mx-0">
-                  <v-rating
-                    :value="4.5"
-                    color="amber"
-                    dense
-                    half-increments
-                    readonly
-                    size="14"
-                  ></v-rating>
-
-                  <div class="grey--text ml-4">4.5 (413)</div>
-                </v-row>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-btn color="deep-orange darken-1" text @click="getPose">
-                  {{ $t('start') }}
-                </v-btn>
-              </v-card-actions>
-            </v-card>
+  <v-hover>
+    <template v-slot:default="{ hover }">
+      <v-card
+        :loading="loading"
+        class="mx-auto mx-6 my-3"
+        max-width="344"
+        elevation="1"
+      >
+        <v-img height="240" :src="item.imageUrl"></v-img>
+        <div class="d-flex flex-no-wrap justify-space-between">
+          <div>
+            <v-card-text>
+              <h2 class="title primary--text">
+                {{ item.programName }}
+              </h2>
+              {{ item.introduction }}
+            </v-card-text>
+            <!-- <v-card-title class="pt-0">
+              <v-rating
+                :value="4"
+                dense
+                color="orange"
+                background-color="orange"
+                hover
+                class="mr-2"
+              ></v-rating>
+              <span class="primary--text subtitle-2">64 レビューア</span>
+            </v-card-title> -->
           </div>
-        </v-expand-transition>
-      </v-img>
-    </v-card>
+          <v-avatar
+            v-if="item.status === 'fulfilled'"
+            class="ma-3"
+            size="35"
+            tile
+          >
+            <v-icon large color="orange darken-2">
+              mdi-checkbox-marked-outline
+            </v-icon>
+          </v-avatar>
+        </div>
+
+        <v-fade-transition>
+          <v-overlay v-if="hover" absolute color="#036358">
+            <v-btn class="blue lighten-1" outlined @click="getPose">{{
+              $t('start')
+            }}</v-btn>
+          </v-overlay>
+        </v-fade-transition>
+      </v-card>
+    </template>
   </v-hover>
 </template>
-
 <script>
 export default {
   props: {
-    id: {
-      type: Number,
+    item: {
+      type: Object,
       required: true,
     },
   },
   data() {
     return {
       loading: false,
-      itemInfo: {},
+      // item: {},
+      overlay: false,
     }
-  },
-  created() {
-    this.$backend
-      .getProgramInfo(this.id)
-      .then((e) => {
-        this.itemInfo = e.data
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   },
   methods: {
     getPose() {
-      this.itemInfo = this.$router.push('/courses/' + this.id)
+      this.$router.push('/courses/' + this.item.id)
     },
   },
 }
 </script>
-<style lang="scss" scoped>
-.v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: 0.9;
-  position: absolute;
-  width: 100%;
-}
-</style>

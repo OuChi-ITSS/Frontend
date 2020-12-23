@@ -22,6 +22,10 @@
   display: block;
   margin-top: 25px;
 }
+.header--button {
+  display: block;
+  margin-top: 25px;
+}
 .header--divide {
   height: 2.5px;
   width: 120px;
@@ -84,4 +88,18 @@
   100% {
     background-position: 10% 0%;
   }
+}
+
+/* https://www.gradient-animator.com/ */
+.authen-page {
+  background: linear-gradient(281deg, #a6f5e1, #fdc7e1, #ffbbbb, #abf0e8);
+  background-size: 800% 800%;
+
+  animation: AnimationName 64s ease infinite;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 70%}
+    50%{background-position:100% 31%}
+    100%{background-position:0% 70%}
 }
