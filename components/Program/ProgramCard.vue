@@ -16,17 +16,21 @@
               </h2>
               {{ item.introduction }}
             </v-card-text>
-            <!-- <v-card-title class="pt-0">
+            <v-card-title class="pt-0">
               <v-rating
-                :value="4"
+                :length="difficultyRating"
+                value="3"
                 dense
                 color="orange"
                 background-color="orange"
                 hover
+                size="1rem"
                 class="mr-2"
               ></v-rating>
-              <span class="primary--text subtitle-2">64 レビューア</span>
-            </v-card-title> -->
+              <span class="primary--text subtitle-2" style="padding-top: 5px">{{
+                item.level
+              }}</span>
+            </v-card-title>
           </div>
           <v-avatar
             v-if="item.status === 'fulfilled'"
@@ -65,6 +69,17 @@ export default {
       // item: {},
       overlay: false,
     }
+  },
+  computed: {
+    difficultyRating() {
+      if (this.item.level === 'Beginner') {
+        return 1
+      } else if (this.item.level === 'Intermediate') {
+        return 2
+      } else {
+        return 3
+      }
+    },
   },
   methods: {
     getPose() {
