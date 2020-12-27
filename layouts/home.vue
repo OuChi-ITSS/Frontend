@@ -2,16 +2,19 @@
   <v-app>
     <v-card class="rounded-0" elevation="0">
       <v-card elevation="0">
-        <div class="home--toolbar">
+        <div class="home--toolbar px-md-16 px-12">
           <v-container>
             <div class="header--slogan">
               <div class="header--divide"></div>
-              <h2 class="display-1" style="display: inline">
+              <h2
+                class="text-h5 text-md-h4 font-weight-light"
+                style="display: inline"
+              >
                 Welcome To
                 <span class="red--text">YOGA AI</span>
               </h2>
               <div class="header--slogan-text">
-                <h1 class="display-3 grey--text">
+                <h1 class="text-h3 text-md-h2 font-weight-light grey--text">
                   The Art of <br />
                   Intelligent Movement
                 </h1>
@@ -19,7 +22,7 @@
             </div>
             <div class="header--button">
               <v-btn
-                class="py-5 px-12"
+                class="py-3 px-8 py-md-5 px-md-12"
                 elevation="0"
                 rounded
                 color="error"
