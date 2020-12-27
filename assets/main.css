@@ -6,14 +6,12 @@
 .home--toolbar {
   width: 100%;
   position: absolute;
-  top: 0;
-  color: white;
+  top: calc(50% - 120px);
   z-index: 99;
   background-color: rgb(255, 0, 0, 0);
 }
 .header--slogan {
   display: inline-block;
-  padding-top: 200px;
   color: rgb(22, 21, 21);
   z-index: 99;
   background-color: rgb(255, 0, 0, 0);
